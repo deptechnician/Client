@@ -23,7 +23,7 @@ choco install git keepass
 # ------------------------------------------------------------
 mkdir $DepClientFolder
 Set-Loccation $DepClientFolder
-git clone https://github.com/deptechnician/Client.github
+git clone https://github.com/deptechnician/Client.git
 
 # ------------------------------------------------------------
 # Install the realvnc instant help disposable app
