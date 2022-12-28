@@ -15,7 +15,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 # ------------------------------------------------------------
 # Install the standard tools used on client devices
 # ------------------------------------------------------------
-choco install git keepass
+choco install git
 
 # ------------------------------------------------------------
 # Download the client scripts
