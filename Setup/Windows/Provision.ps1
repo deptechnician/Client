@@ -5,7 +5,7 @@
 # ------------------------------------------------------------
 # Initialiation, set up variables
 # ------------------------------------------------------------
-pushd . 
+Push-Location . 
 $DepClientFolder = "$env:userprofile\DepClient"
 
 # ------------------------------------------------------------
@@ -22,7 +22,7 @@ choco install git keepass
 # Download the client scripts
 # ------------------------------------------------------------
 mkdir $DepClientFolder
-cd $DepClientFolder
+Set-Loccation $DepClientFolder
 git clone https://github.com/deptechnician/Client.github
 
 # ------------------------------------------------------------
@@ -34,5 +34,5 @@ Invoke-WebRequest -Uri https://static.realvnc.help/generic/1.0.3/Instant-support
 # ------------------------------------------------------------
 # Return to the state we started
 # ------------------------------------------------------------
-popd
+Pop-Location
 
