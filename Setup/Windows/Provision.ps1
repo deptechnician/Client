@@ -6,7 +6,6 @@
 # Initialiation, set up variables
 # ------------------------------------------------------------
 Push-Location . 
-$DepClientFolder = "$env:userprofile\DepClient"
 
 # ------------------------------------------------------------
 # Install Chocolatey
@@ -21,6 +20,7 @@ choco install git keepass
 # ------------------------------------------------------------
 # Download the client scripts
 # ------------------------------------------------------------
+$DepClientFolder = "$env:userprofile\DEP"
 mkdir $DepClientFolder
 Set-Loccation $DepClientFolder
 git clone https://github.com/deptechnician/Client.git
