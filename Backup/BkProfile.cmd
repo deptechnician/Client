@@ -21,7 +21,7 @@ pushd .
 REM ------------------------------------------------------------
 REM Backup the standard folders
 REM ------------------------------------------------------------
-for %%i in (Documents Desktop Pictures Videos Downloads OneDrive) do (
+for %%i in (Documents Desktop Pictures Videos Downloads) do (
     Set CurSrc=%Src%\%%i
     Set CurDst=%Dst%\%%i
     Call Sync
