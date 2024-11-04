@@ -9,4 +9,4 @@ sudo passwd USERNAME
 sudo usermod -a -G sudo USERNAME
 
 # Delete a user
-sudo deluser --remove-home USERNAME
+sudo deluser --remove-home [USERNAME]
