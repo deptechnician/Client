@@ -15,7 +15,9 @@ alias sshlockdown='sudo cp $HOME/Code/Client/provision/linux/templates/sshd_conf
 alias gpt="ollama run llama3"
 alias transcribe="whisper --model small"
 alias mounte="sudo mount -t drvfs E: /mnt/e"
-alias bknas="$HOME/Code/Client/backup/bkprofile.sh paul"
+alias bkpaul="$HOME/Code/Client/backup/bkprofile.sh paul"
+alias bkfull="$HOME/Code/Client/backup/bkprofile.sh paul-full"
+alias bklinux="$HOME/Code/Client/backup/bkprofile.sh paul-linux"
 
 # Backup to a usb
 function bkusb() {
