@@ -10,7 +10,7 @@ if [ $# -ne 1 ]; then
 fi
 
 PERSON_NAME=$1
-CONFIG_FILE="$HOME/Code/Client/configs/$PERSON_NAME.conf"
+CONFIG_FILE="$HOME/Code/configs/clients/$PERSON_NAME.conf"
 
 # Check if the configuration file exists
 if [ ! -f "$CONFIG_FILE" ]; then
