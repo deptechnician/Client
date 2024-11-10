@@ -1,23 +1,23 @@
 # -------------------------------------
 # Aliases
 # -------------------------------------
-alias pubip='curl ipinfo.io'
-alias ipa="ifconfig | grep inet"
-alias ref='display_reference_file'
 alias aliasup="cp $HOME/Code/Client/provision/linux/bash_aliases ~/.bash_aliases && source $HOME/.bashrc"
-alias dirsize='du -h .'
-alias diskspace="du -Sh | sort -n -r"
-alias folders='du -h --max-depth=1'
-alias tree='tree -CAhF --dirsfirst'
-alias treed='tree -CAFd'
-alias sshkey='xclip -sel clip < $HOME/.ssh/depgithub.pub && xclip -o -sel clip'
-alias sshlockdown='sudo cp $HOME/Code/Client/provision/linux/templates/sshd_config_soft /etc/ssh/sshd_config && sudo systemctl restart ssh'
-alias gpt="ollama run llama3"
-alias transcribe="whisper --model small"
-alias mounte="sudo mount -t drvfs E: /mnt/e"
 alias bkpaul="$HOME/Code/Client/backup/linux/bkprofile.sh paul"
 alias bkfull="$HOME/Code/Client/backup/linux/bkprofile.sh paul-full"
 alias bklinux="$HOME/Code/Client/backup/linux/bkprofile.sh paul-linux"
+alias dirsize='du -h .'
+alias diskspace="du -Sh | sort -n -r"
+alias folders='du -h --max-depth=1'
+alias gpt="ollama run llama3"
+alias mounte="sudo mount -t drvfs E: /mnt/e"
+alias pubip='curl ipinfo.io'
+alias ref='display_reference_file'
+alias sshkey='xclip -sel clip < $HOME/.ssh/depgithub.pub && xclip -o -sel clip'
+alias sshlockdown='sudo cp $HOME/Code/Client/provision/linux/templates/sshd_config_soft /etc/ssh/sshd_config && sudo systemctl restart ssh'
+alias tree='tree -CAhF --dirsfirst'
+alias treed='tree -CAFd'
+alias transcribe="whisper --model small"
+alias functions="echo bkusb, cpp, ftext, extract, provision, ref, syncup, syndown"
 
 # Backup to a usb
 function bkusb() {
@@ -65,7 +65,7 @@ function syncdown() {
     fi
 }
 
-# Displays reference material, like cliff notes for man pages
+# Installs an individual module
 function provision() {
     local filename="$HOME/Code/Client/provision/linux/install/$1.sh"
 
@@ -98,7 +98,7 @@ function display_reference_file() {
         find $HOME/Code/Client/provision/linux/reference -maxdepth 1 -type f -exec basename {} \; | sed 's/\.[^.]*$//'
         echo " "
     else
-        highlight -O ansi $filename
+        cat $filename
     fi
 }
 
