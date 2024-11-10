@@ -14,6 +14,27 @@ alias sshkey='xclip -sel clip < $HOME/.ssh/depgithub.pub && xclip -o -sel clip'
 alias sshlockdown='sudo cp $HOME/Code/Client/provision/linux/templates/sshd_config_soft /etc/ssh/sshd_config && sudo systemctl restart ssh'
 alias gpt="ollama run llama3"
 alias transcribe="whisper --model small"
+alias mounte="sudo mount -t drvfs E: /mnt/e"
+alias bknas="$HOME/Code/Client/backup/bkprofile.sh paul"
+
+# Backup to a usb
+function bkusb() {
+    if [ -z "$1" ]; then
+        echo " "
+        echo "Usage: bkusb [destination]"
+        echo " "
+        echo "Backs the full profile"
+        echo " "
+        echo "Example: sbkusb /mnt/e/2411"
+        echo " "
+    else
+        if [ -d "$1" ]; then
+            bash "$HOME/Code/Client/backup/bkprofile.sh paul-full $1"
+        else
+            echo "$1 does not exist"
+        fi
+    fi
+}
 
 # Syncup command - uploads the current folder to a destination folder such that the destination mirrors the current folder
 function syncup() {
@@ -23,7 +44,7 @@ function syncup() {
         echo " "
         echo "Uploads the content from the current folder and mirrors it into a destination folder"
         echo " "
-        echo "Example: syncup stan@nas-homelab:$HOME/nas"
+        echo "Example: syncup paul@nas-homelab:$HOME/nas"
         echo " "
     else
         rsync -avzP --delete ./ "$1"
@@ -38,7 +59,7 @@ function syncdown() {
         echo " "
         echo "Downloads the content from a source folder and mirrors it into the current folder"
         echo " "
-        echo "Example: syncdown stan@nas-homelab:$HOME/nas"
+        echo "Example: syncdown paul@nas-homelab:$HOME/nas"
         echo " "
     else
         rsync -avzP --delete "$1" ./
