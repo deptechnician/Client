@@ -17,7 +17,7 @@ alias sshlockdown='sudo cp $HOME/Code/Client/provision/linux/templates/sshd_conf
 alias tree='tree -CAhF --dirsfirst'
 alias treed='tree -CAFd'
 alias transcribe="whisper --model small"
-alias functions="echo bkusb, cpp, ftext, extract, provision, ref, syncup, syndown"
+alias functions="echo bkusb, cpp, ftext, extract, naspull, provision, ref, syncup, syndown"
 
 # Backup to a usb
 function bkusb() {
@@ -33,6 +33,26 @@ function bkusb() {
             echo "$2 does not exist"
         fi
     fi
+}
+
+# Pull down content from the nas to the current directory
+function getnas() {
+    if [ -z "$1" ]; then
+        echo " "
+        echo "Usage: getnas <profile>"
+        echo "  Example: getnas paul-linux"
+        echo " "
+    else
+        CONFIG_FILE="$HOME/Code/configs/clients/$1.conf"
+        if [ -f "$CONFIG_FILE" ]; then
+            source "$CONFIG_FILE"
+            echo "$LOCAL_NAS"
+            echo "Copying this command to the clipboard: syncdown $LOCAL_NAS"
+            echo "syncdown $LOCAL_NAS" | xclip -selection clipboard
+        else
+            echo "Cannot find configuration file $CONFIG_FILE"
+        fi
+    fi    
 }
 
 # Syncup command - uploads the current folder to a destination folder such that the destination mirrors the current folder
