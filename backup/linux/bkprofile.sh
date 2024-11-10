@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Make sure you at least of the person name
-if [ $# -ne 1 ]; then
+if [ $# -lt 1 ]; then
     echo " "
     echo " Usage: $0 <person_name> [backup_path]"
     echo "   If no backup_path is provided, the LOCAL_NAS in the person's config file will be used"
