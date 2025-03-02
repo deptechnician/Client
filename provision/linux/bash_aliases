@@ -18,6 +18,7 @@ alias mounte="sudo mount -t drvfs E: /mnt/e"
 alias provision='provision_function'
 alias pubip='curl ipinfo.io'
 alias ref='display_reference_file'
+alias sshnas="sshnas_function"
 alias sshagent='eval "$(ssh-agent -s)" '
 alias sshinit="pushd . && cd ~/.ssh && sshagent && ssh-add officenas && ssh-add depgithub && popd"
 alias sshkey='xclip -sel clip < $HOME/.ssh/depgithub.pub && xclip -o -sel clip'
@@ -58,6 +59,25 @@ function getnas_function() {
             echo "$LOCAL_NAS"
             echo "Copying this command to the clipboard: syncdown $LOCAL_NAS"
             echo "syncdown $LOCAL_NAS" | xclip -selection clipboard
+        else
+            echo "Cannot find configuration file $CONFIG_FILE"
+        fi
+    fi    
+}
+
+# Pull down content from the nas to the current directory
+function sshnas_function() {
+    if [ -z "$1" ]; then
+        echo " "
+        echo "Usage: sshnas <profile>"
+        echo "  Example: sshnas paul"
+        echo " "
+    else
+        CONFIG_FILE="$HOME/Code/configs/clients/$1.conf"
+        if [ -f "$CONFIG_FILE" ]; then
+            source "$CONFIG_FILE"
+            echo "$LOCAL_NASSSH"
+            ssh $LOCAL_NASSSH
         else
             echo "Cannot find configuration file $CONFIG_FILE"
         fi
