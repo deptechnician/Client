@@ -28,6 +28,7 @@ alias syncdown='syncdown_function'
 alias tree='tree -CAhF --dirsfirst'
 alias treed='tree -CAFd'
 alias transcribe="whisper --model small"
+alias update='sudo apt update && sudo apt upgrade -y'
 
 # Backup to a usb
 function bkusb_function() {
