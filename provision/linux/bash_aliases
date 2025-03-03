@@ -4,8 +4,10 @@
 alias aliasup="cp $HOME/Code/Client/provision/linux/bash_aliases ~/.bash_aliases && source $HOME/.bashrc"
 alias bkusb='bkusb_function'
 alias bkpaul="$HOME/Code/Client/backup/linux/bkprofile.sh paul"
-alias bkfull="$HOME/Code/Client/backup/linux/bkprofile.sh paul-full"
+alias bkwfi="$HOME/Code/Client/backup/linux/bkprofile.sh wfi"
+alias bkplc="$HOME/Code/Client/backup/linux/bkprofile.sh plc"
 alias bklinux="$HOME/Code/Client/backup/linux/bkprofile.sh paul-linux"
+alias bkfull="$HOME/Code/Client/backup/linux/bkprofile.sh paul-full"
 alias cpp='cpp_function'
 alias dirsize='du -h .'
 alias diskspace="du -Sh | sort -n -r"
