@@ -56,7 +56,7 @@ function getnas_function() {
         echo "  Example: getnas paul-linux"
         echo " "
     else
-        CONFIG_FILE="$HOME/Code/configs/clients/$1.conf"
+        CONFIG_FILE="$HOME/.DEP/$1.conf"
         if [ -f "$CONFIG_FILE" ]; then
             source "$CONFIG_FILE"
             echo "$LOCAL_NAS"
@@ -76,7 +76,7 @@ function sshnas_function() {
         echo "  Example: sshnas paul"
         echo " "
     else
-        CONFIG_FILE="$HOME/Code/configs/clients/$1.conf"
+        CONFIG_FILE="$HOME/.DEP/$1.conf"
         if [ -f "$CONFIG_FILE" ]; then
             source "$CONFIG_FILE"
             echo "$LOCAL_NASSSH"

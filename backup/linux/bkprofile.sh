@@ -3,18 +3,22 @@
 # Make sure you at least of the person name
 if [ $# -lt 1 ]; then
     echo " "
-    echo " Usage: $0 <person_name> [backup_path]"
-    echo "   If no backup_path is provided, the LOCAL_NAS in the person's config file will be used"
+    echo " Usage: $0 <Profile> [Backup_path]"
+    echo ""
+    echo "   Profiles:"
+    find ~/.DEP/*.conf -type f -exec basename {} \; | sed 's/\.[^.]*$//' | awk '{print "\t" $0}'
+    echo " "
+    echo "LOCAL_NAS in the profile is the default Backup_path"
     echo " "
     exit 
 fi
 
-PERSON_NAME=$1
-CONFIG_FILE="$HOME/Code/configs/clients/$PERSON_NAME.conf"
+PROFILE_NAME=$1
+CONFIG_FILE="$HOME/.DEP/$PROFILE_NAME.conf"
 
 # Check if the configuration file exists
 if [ ! -f "$CONFIG_FILE" ]; then
-    echo "Configuration file for '$PERSON_NAME' does not exist: $CONFIG_FILE"
+    echo "Configuration file for '$PROFILE_NAME' does not exist: $CONFIG_FILE"
     exit 
 fi
 
@@ -51,5 +55,5 @@ for FOLDER in $BACKUP_FOLDERS; do
     rsync -avzP --delete "$FOLDER_PATH" "$BACKUP_PATH"
 done
 
-echo "Backup completed for $PERSON_NAME."
+echo "Backup completed for $PROFILE_NAME."
 exit 0
