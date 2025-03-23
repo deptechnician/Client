@@ -14,16 +14,18 @@ if [ $# -lt 1 ]; then
 fi
 
 PROFILE_NAME=$1
-CONFIG_FILE="$HOME/.DEP/$PROFILE_NAME.conf"
+BASE_NAS_CONFIG="$HOME/.DEP/nas.conf"
+PROFILE_FILE="$HOME/.DEP/$PROFILE_NAME.conf"
 
 # Check if the configuration file exists
-if [ ! -f "$CONFIG_FILE" ]; then
-    echo "Configuration file for '$PROFILE_NAME' does not exist: $CONFIG_FILE"
+if [ ! -f "$PROFILE_FILE" ]; then
+    echo "Configuration file for '$PROFILE_NAME' does not exist: $PROFILE_FILE"
     exit 
 fi
 
 # Load configuration from the file
-source "$CONFIG_FILE"
+source "$BASE_NAS_CONFIG"
+source "$PROFILE_FILE"
 
 # Validate necessary variables in the config file
 if [ -z "$PROFILE_PATH" ] || [ -z "$NAS_PATH" ] || [ -z "$BACKUP_FOLDERS" ] || [ -z "$LOCAL_NAS" ]; then
