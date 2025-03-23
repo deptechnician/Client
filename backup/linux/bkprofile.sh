@@ -6,7 +6,7 @@ if [ $# -lt 1 ]; then
     echo " Usage: $0 <Profile> [Backup_path]"
     echo ""
     echo "   Profiles:"
-    find ~/.DEP/*.conf -type f -exec basename {} \; | sed 's/\.[^.]*$//' | awk '{print "\t" $0}'
+    find ~/.DEP/*.conf -type f -exec basename {} \; | sed 's/\.[^.]*$//' | awk '{print "\t" $0}' | grep -v nas
     echo " "
     echo "LOCAL_NAS in the profile is the default Backup_path"
     echo " "

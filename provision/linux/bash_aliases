@@ -8,6 +8,7 @@ alias bkwfi="$HOME/Code/Client/backup/linux/bkprofile.sh wfi"
 alias bkplc="$HOME/Code/Client/backup/linux/bkprofile.sh plc"
 alias bklinux="$HOME/Code/Client/backup/linux/bkprofile.sh paul-linux"
 alias bkfull="$HOME/Code/Client/backup/linux/bkprofile.sh paul-full"
+alias bkprofile="$HOME/Code/Client/backup/linux/bkprofile.sh"
 alias cpp='cpp_function'
 alias dirsize='du -h .'
 alias diskspace="du -Sh | sort -n -r"
@@ -50,22 +51,18 @@ function bkusb_function() {
 
 # Pull down content from the nas to the current directory
 function getnas_function() {
-    if [ -z "$1" ]; then
-        echo " "
-        echo "Usage: getnas <profile>"
-        echo "  Example: getnas paul-linux"
-        echo " "
+    NAS_FILE=$HOME/.DEP/nas.conf
+    if [ -f "$NAS_FILE" ]; then
+        source "$NAS_FILE"
+        echo ""
+        echo "$NAS_ADDRESS"
+        echo "$NAS_PATH"
+        echo "Copying this command to the clipboard: ssh $NAS_USER@$NAS_ADDRESS"
+        echo "ssh $NAS_USER@$NAS_ADDRESS" | xclip -selection clipboard
+        echo ""
     else
-        CONFIG_FILE="$HOME/.DEP/$1.conf"
-        if [ -f "$CONFIG_FILE" ]; then
-            source "$CONFIG_FILE"
-            echo "$LOCAL_NAS"
-            echo "Copying this command to the clipboard: syncdown $LOCAL_NAS"
-            echo "syncdown $LOCAL_NAS" | xclip -selection clipboard
-        else
-            echo "Cannot find configuration file $CONFIG_FILE"
-        fi
-    fi    
+        echo "Cannot find configuration file $NAS_FILE"
+    fi
 }
 
 # Pull down content from the nas to the current directory
