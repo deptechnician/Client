@@ -3,11 +3,6 @@
 # -------------------------------------
 alias aliasup="cp $HOME/Code/Client/provision/linux/bash_aliases ~/.bash_aliases && source $HOME/.bashrc"
 alias bkusb='bkusb_function'
-alias bkpaul="$HOME/Code/Client/backup/linux/bkprofile.sh paul"
-alias bkwfi="$HOME/Code/Client/backup/linux/bkprofile.sh wfi"
-alias bkplc="$HOME/Code/Client/backup/linux/bkprofile.sh plc"
-alias bklinux="$HOME/Code/Client/backup/linux/bkprofile.sh paul-linux"
-alias bkfull="$HOME/Code/Client/backup/linux/bkprofile.sh paul-full"
 alias bkprofile="$HOME/Code/Client/backup/linux/bkprofile.sh"
 alias cpp='cpp_function'
 alias dirsize='du -h .'
@@ -67,21 +62,16 @@ function getnas_function() {
 
 # Pull down content from the nas to the current directory
 function sshnas_function() {
-    if [ -z "$1" ]; then
-        echo " "
-        echo "Usage: sshnas <profile>"
-        echo "  Example: sshnas paul"
-        echo " "
+    NAS_FILE=$HOME/.DEP/nas.conf
+    if [ -f "$NAS_FILE" ]; then
+        source "$NAS_FILE"
+        echo ""
+        echo "$NAS_ADDRESS"
+        echo "$NAS_PATH"
+        ssh $NAS_USER@$NAS_ADDRESS
     else
-        CONFIG_FILE="$HOME/.DEP/$1.conf"
-        if [ -f "$CONFIG_FILE" ]; then
-            source "$CONFIG_FILE"
-            echo "$LOCAL_NASSSH"
-            ssh $LOCAL_NASSSH
-        else
-            echo "Cannot find configuration file $CONFIG_FILE"
-        fi
-    fi    
+        echo "Cannot find configuration file $NAS_FILE"
+    fi
 }
 
 # Syncup command - uploads the current folder to a destination folder such that the destination mirrors the current folder
