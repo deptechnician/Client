@@ -26,7 +26,7 @@ fi
 source "$CONFIG_FILE"
 
 # Validate necessary variables in the config file
-if [ -z "$PROFILE_PATH" ] || [ -z "$BACKUP_FOLDERS" ] || [ -z "$LOCAL_NAS" ]; then
+if [ -z "$PROFILE_PATH" ] || [ -z "$NAS_PATH" ] || [ -z "$BACKUP_FOLDERS" ] || [ -z "$LOCAL_NAS" ]; then
     echo "Error: Missing required parameters (PROFILE_PATH, LOCAL_NAS, or BACKUP_FOLDERS) in the configuration file."
     exit 
 fi
