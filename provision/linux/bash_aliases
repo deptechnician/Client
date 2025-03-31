@@ -85,7 +85,7 @@ function syncup_function() {
         echo "Example: syncup paul@nas-homelab:$HOME/nas"
         echo " "
     else
-        rsync -avzP --delete ./ "$1"
+        rsync -avzP --delete --no-group ./ "$1"
     fi
 }
 
@@ -100,7 +100,7 @@ function syncdown_function() {
         echo "Example: syncdown paul@nas-homelab:$HOME/nas"
         echo " "
     else
-        rsync -avzP --delete "$1" ./
+        rsync -avzP --delete --no-group "$1" ./
     fi
 }
 
