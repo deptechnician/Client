@@ -17,6 +17,7 @@ else
     bash install/helper-apt.sh libwxgtk3.2-dev libwxgtk3.2-dev "libwxgtk3.2-dev"
     bash install/helper-apt.sh libpcsclite-dev libpcsclite-dev "libpcsclite-dev"
 
+    mkdir ~/Apps
     mkdir ~/Apps/veracrypt >> ~/.provision.log
     cd ~/Apps/veracrypt >> ~/.provision.log
 
