@@ -28,11 +28,6 @@ sudo nano /etc/ssh/sshd_config
 # -------------------------------
 sudo cp ~/Code/setup/sshd_config /etc/ssh
 
-# Copy the public key to the clipboard
-#
-xclip -sel clip < /home/seth/.ssh/sethflared.pub
-xclip -o -sel clip
-
 # Restart the service
 # ----------------------
 sudo systemctl restart ssh

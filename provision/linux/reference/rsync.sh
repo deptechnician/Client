@@ -10,7 +10,7 @@ rsync -avzP --delete /Directory1/ /Directory2/
 rsync [OPTION...] SRC... [DEST]
 
 rsync -avP --delete -e ssh /Directory1/ geek@192.168.235.137:/Directory2/
-rsync -avzP --delete seth@scratch3.local:~/Images/ ./
+rsync -avzP --delete jonah@scratch3.local:~/Images/ ./
 
 Options Explained
 -a: Archive mode

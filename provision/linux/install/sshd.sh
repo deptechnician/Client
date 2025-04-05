@@ -20,10 +20,6 @@ else
     chmod 600 ~/.ssh/authorized_keys
     cat ~/.ssh/authorized_keys
 
-    # Make Seth an authorized user
-    # 
-    cat ~/Code/setup/templates/sethflared.pub >> ~/.ssh/authorized_keys
-
     # Install the soft lockdown configuration
     # ---------------------------------------
     sudo cp ~/Code/setup/templates/sshd_config_soft /etc/ssh/sshd_config
