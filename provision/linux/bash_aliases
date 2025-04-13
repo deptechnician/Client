@@ -4,6 +4,7 @@
 alias aliasup="cp $HOME/Code/Client/provision/linux/bash_aliases ~/.bash_aliases && source $HOME/.bashrc"
 alias bkusb='bkusb_function'
 alias bkprofile="$HOME/Code/Client/backup/linux/bkprofile.sh"
+alias bk='bkprofile'
 alias cpp='cpp_function'
 alias dirsize='du -h .'
 alias diskspace="du -Sh | sort -n -r"
