@@ -11,6 +11,9 @@ else
     bash install/helper-apt.sh tree tree "tree"
     bash install/helper-apt.sh fzf fzf "fzf"
     bash install/helper-apt.sh bash-completion bash-completion "bash-completion"
+    bash install/helper-apt.sh avahi-utils avahi-utils avahi-utils
+    bash install/helper-apt.sh tmux tmux tmux
+    bash install/helper-apt.sh make make make
     #bash install/helper-apt.sh zoxide zoxide "zoxide"
     #bash install/helper-apt.sh trash-cli trash-cli "trash-cli"
 fi

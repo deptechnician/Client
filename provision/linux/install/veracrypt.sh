@@ -16,6 +16,7 @@ else
     bash install/helper-apt.sh yasm yasm "yasm"
     bash install/helper-apt.sh libwxgtk3.2-dev libwxgtk3.2-dev "libwxgtk3.2-dev"
     bash install/helper-apt.sh libpcsclite-dev libpcsclite-dev "libpcsclite-dev"
+    bash install/helper-apt.sh make make make
 
     mkdir ~/Apps
     mkdir ~/Apps/veracrypt >> ~/.provision.log

@@ -14,6 +14,7 @@ alias getnas='getnas_function'
 alias gpt="ollama run llama3"
 alias mounte="sudo mount -t drvfs E: /mnt/e"
 alias provision='provision_function'
+alias privip='ip a | grep inet | grep -v inet6 | grep -v 127.0.0.1'
 alias pubip='curl ipinfo.io'
 alias ref='display_reference_file'
 alias sshnas="sshnas_function"
