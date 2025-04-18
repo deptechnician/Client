@@ -22,8 +22,8 @@ else
 
     # Install the soft lockdown configuration
     # ---------------------------------------
-    sudo cp ~/Code/Client/provision/linux/templates/sshd_config_soft /etc/ssh/sshd_config
-    sudo systemctl restart ssh
+    # sudo cp ~/Code/Client/provision/linux/templates/sshd_config_soft /etc/ssh/sshd_config
+    # sudo systemctl restart ssh
 fi
 
 echo "Completed SSH Server configuration"
