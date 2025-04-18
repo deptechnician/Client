@@ -22,7 +22,7 @@ else
 
     # Install the soft lockdown configuration
     # ---------------------------------------
-    sudo cp ~/Code/setup/templates/sshd_config_soft /etc/ssh/sshd_config
+    sudo cp ~/Code/Client/provision/linux/templates/sshd_config_soft /etc/ssh/sshd_config
     sudo systemctl restart ssh
 fi
 
