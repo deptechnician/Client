@@ -7,11 +7,12 @@ bash install/samba.sh
 sudo mkdir -p ~/backup/incoming
 sudo mkdir -p ~/backup/snapshots
 
-sudo adduser --no-create-home --disabled-login depbackup
-sudo smbpasswd -a depbackup
-sudo smbpasswd -e depbackup
-sudo chown depbackup:depbackup ~/backup/incoming
-sudo chown depbackup:depbackup ~/backup/snapshots
+#sudo adduser --no-create-home --disabled-login depbackup
+#passwd depbackup
+sudo smbpasswd -a dep
+sudo smbpasswd -3 dep
+sudo chown dep:dep ~/backup/incoming
+sudo chown dep:dep ~/backup/snapshots
 sudo chmod 700 ~/backup/incoming
 sudo chmod 700 ~/backup/snapshots
 
@@ -24,13 +25,15 @@ if ! grep -qF "$SECTION_NAME" "$SMB_CONF"; then
 
 $SECTION_NAME
    path = /home/dep/backup/incoming
-   valid users = depbackup
+   valid users = dep
    read only = no
    browseable = yes
 EOF
 else
     echo "$SECTION_NAME section already exists in $SMB_CONF"
 fi
+
+sudo sed -i '/^\[global\]/a min protocol = SMB2\nmax protocol = SMB3' /etc/samba/smb.conf
 
 sudo systemctl restart smbd
 
