@@ -9,8 +9,8 @@ bash install/helper-apt.sh samba samba samba
 
 sudo mkdir -p ~/backup/incoming
 sudo mkdir -p ~/backup/snapshots
-sudo chown depbackup:depbackup ~/backup/incoming
-sudo chown depbackup:depbackup ~/backup/snapshots
+sudo chown dep:dep ~/backup/incoming
+sudo chown dep:dep ~/backup/snapshots
 sudo chmod 700 ~/backup/incoming
 sudo chmod 700 ~/backup/snapshots
 
@@ -22,8 +22,8 @@ if ! grep -qF "$SECTION_NAME" "$SMB_CONF"; then
     cat <<EOF | sudo tee -a "$SMB_CONF" > /dev/null
 
 $SECTION_NAME
-   path = /srv/samba/backups
-   valid users = backupuser
+   path = /home/dep/backup/incoming
+   valid users = dep
    read only = no
    browseable = yes
 EOF
