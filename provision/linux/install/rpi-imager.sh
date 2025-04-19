@@ -1,7 +1,8 @@
 #!/bin/bash
 
 echo "------------------------------------------------------------------------"
-echo " App installation"
+echo " Raspberry Pi Imager installation"
 echo "------------------------------------------------------------------------"
 
-bash install/helper-flatpak.sh com.brave.Browser "Brave Browser"
+bash install/helper-apt.sh rpi-imager rpi-imager rpi-imager
+
